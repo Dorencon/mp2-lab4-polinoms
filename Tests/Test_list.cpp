@@ -1,6 +1,11 @@
 #include "gtest.h"
 #include "noms.h"
 
+TEST(Lists, can_create_list_of_monoms)
+{
+	ASSERT_NO_THROW(list<monom> l);
+}
+
 TEST(Lists, can_add_to_list)
 {
 	monom m(2, 123);

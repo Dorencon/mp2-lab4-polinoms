@@ -45,6 +45,19 @@ TEST(Polynoms, can_sum_polynoms)
 	ASSERT_EQ(p1 + p2, p3);
 }
 
+TEST(Polynoms, can_subtract_polynoms)
+{
+	polynom p1, p2;
+	p1.add(monom(2, 123));
+	p1.add(monom(3, 222));
+	p2.add(monom(3, 123));
+	p2.add(monom(4, 222));
+	polynom p3;
+	p3.add(monom(-1, 123));
+	p3.add(monom(-1, 222));
+	ASSERT_EQ(p1 - p2, p3);
+}
+
 TEST(Polynoms, can_mult_polynoms)
 {
 	polynom p1, p2;
