@@ -83,13 +83,21 @@ polynom polynom::operator+(const polynom& p) const
 
 polynom polynom::operator*(const polynom& p) const
 {
-	part<monom>* f1 = l.first;
+	part<monom>* f1 = l.first->next;
 	polynom pr;
 	while (f1 != nullptr)
 	{
-		part<monom>* f2 = p.l.first;
+		part<monom>* f2 = p.l.first->next;
 		while (f2 != nullptr)
 		{
+			try
+			{
+				f1->v * f2->v;
+			}
+			catch (runtime_error* e)
+			{
+				cerr << e;
+			}
 			pr.add(f1->v * f2->v);
 			f2 = f2->next;
 		}
@@ -105,11 +113,12 @@ polynom polynom::operator-(const polynom& p) const
 
 polynom polynom::operator*(const double q) const
 {
-	part<monom>* f = l.first;
+	part<monom>* f = l.first->next;
 	polynom pr;
 	while (f != nullptr)
 	{
 		pr.add(f->v * q);
+		f = f->next;
 	}
 	return pr;
 }

@@ -90,6 +90,8 @@ bool list<T>::operator==(const list& l) const
 		{
 			return false;
 		}
+		p1 = p1->next;
+		p2 = p2->next;
 	}
 	return ((p1 == nullptr) && (p2 == nullptr));
 }
